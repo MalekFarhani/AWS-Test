@@ -86,3 +86,12 @@ The Dockerfile is used to create a container with Terraform installed. The `dock
    volumes:
      - ./terraform:/workspace
      - ~/.aws:/root/.aws
+
+## Deployment Flow
+
+1. **Terraform** provisions an **S3 bucket** for static website hosting and a **CloudFront distribution**.
+2. **CloudFront** serves the website content securely over **HTTPS**.
+
+## Notes
+
+Make sure your **AWS credentials** are configured correctly before running **Terraform**.
