@@ -10,10 +10,13 @@ This project deploys a simple static website to an AWS S3 bucket and configures 
 
 ## Setup Instructions
 
-### 1. Clone the repository
-```bash
-git clone <repository-url>
-cd <repository-directory>
+### Steps to Deploy Static Website on AWS with S3 and CloudFront
+
+1. **Clone the repository**
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
 
 2. **Build the Docker Image**
     Run the following command to build the Docker image for Terraform:
