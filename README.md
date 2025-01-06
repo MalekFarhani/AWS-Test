@@ -62,5 +62,27 @@ This project deploys a simple static website to an AWS S3 bucket and configures 
 - **outputs.tf**: Provides output values such as the bucket name and CloudFront distribution domain.
 - **Dockerfile**: Sets up the environment with Terraform and dependencies in a Docker container.
 - **Makefile**: Includes commands for building, initializing, validating, planning, applying, and stopping Terraform infrastructure in Docker.
-- **docker-compose.yml**: Defines the services for Terraform and LocalStack (optional for local AWS emulation).
+- **docker-compose.yml**: Defines the services for Terraform.
 - **index.html**: Simple HTML file for the static website with a "Hello" message.
+
+## Docker Environment
+
+The Dockerfile is used to create a container with Terraform installed. The `docker-compose.yml` file configures a service for Terraform with two options for handling AWS credentials:
+
+1. **Using Environment Variables:**
+   This option directly sets the AWS credentials and region as environment variables inside the container. Replace `your_aws_access_key` and `your_aws_secret_key` with your actual AWS credentials.
+   
+   ```yaml
+   environment:
+     - AWS_ACCESS_KEY_ID=your_aws_access_key
+     - AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+     - AWS_DEFAULT_REGION=eu-west-1
+
+2. **Mounting AWS Local Credentials:**
+
+   This option uses the AWS credentials stored in your local `~/.aws` directory, making it easier to manage without hardcoding your access keys.
+
+   ```yaml
+   volumes:
+     - ./terraform:/workspace
+     - ~/.aws:/root/.aws
