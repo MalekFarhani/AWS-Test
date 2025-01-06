@@ -54,3 +54,13 @@ This project deploys a simple static website to an AWS S3 bucket and configures 
     ```bash
     make stop
     ```
+
+## File Overview
+
+- **main.tf**: Defines the S3 bucket for static hosting, CloudFront distribution, and associated resources.
+- **variables.tf**: Specifies the required variables for the AWS region and bucket name.
+- **outputs.tf**: Provides output values such as the bucket name and CloudFront distribution domain.
+- **Dockerfile**: Sets up the environment with Terraform and dependencies in a Docker container.
+- **Makefile**: Includes commands for building, initializing, validating, planning, applying, and stopping Terraform infrastructure in Docker.
+- **docker-compose.yml**: Defines the services for Terraform and LocalStack (optional for local AWS emulation).
+- **index.html**: Simple HTML file for the static website with a "Hello" message.
