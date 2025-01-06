@@ -94,4 +94,5 @@ The Dockerfile is used to create a container with Terraform installed. The `dock
 
 ## Notes
 
-Make sure your **AWS credentials** are configured correctly before running **Terraform**.
+- Ensure that your **AWS credentials** are properly set up before running **Terraform** commands.
+- The deployment can be tested by accessing the **CloudFront URL** after the `make apply` command completes.
